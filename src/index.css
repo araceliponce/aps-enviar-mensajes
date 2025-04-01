@@ -61,8 +61,9 @@ a:hover {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 1.2em;
+  line-height: 1;
+  /* padding-bottom: 1em; */
 }
 
 button {
@@ -100,6 +101,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
 
 .dark {
   --background: oklch(0.145 0 0);
@@ -177,7 +179,8 @@ button:focus-visible {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    /* @apply bg-background text-foreground; */
   }
 }

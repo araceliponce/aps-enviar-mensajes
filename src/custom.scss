@@ -1,0 +1,105 @@
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+main {
+  max-width: 33rem;
+  margin-inline: auto;
+  padding: 2rem;
+}
+
+
+//inputs, textareas
+input,
+label {
+  cursor: pointer;
+}
+
+input[type="text"],
+textarea {
+  outline: 1px solid currentColor;
+  border-radius: .25rem;
+  padding: 1rem;
+}
+
+textarea {
+  height: 8rem;
+}
+
+// buttons
+[disabled] {
+  filter: invert(1);
+  opacity: .9;
+}
+
+[disabled]:hover {
+  cursor: default;
+  border-color: transparent;
+
+
+}
+
+
+
+// modals
+.bg-modal {
+  background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-modal {
+    background-color: rgb(29, 29, 29);
+  }
+}
+
+.dialog__header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  & button {
+    padding: .5rem;
+    font-size: .8rem;
+  }
+}
+
+.dialog__content {
+  padding-top: 1rem;
+  display: grid;
+  // gap: .5rem;
+}
+
+.dialog__footer {
+  padding-top: 1rem;
+  display: grid;
+  gap: .5rem;
+
+  &>*:nth-child(1) {
+    // background-color: pink;
+  }
+
+  &>*:nth-child(2) {
+    background-color: rgb(255, 230, 88);
+    color: #333;
+  }
+}
+
+@media screen and (min-width:500px) {
+  .dialog__footer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+
+//label
+.people__label {
+  display: grid;
+  grid-template-columns: 1.2rem 1fr;
+  gap: .4rem;
+
+  &+* {
+    margin-top: .5em;
+  }
+}
