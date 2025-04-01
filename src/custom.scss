@@ -120,9 +120,6 @@ button {
   display: grid;
   gap: .5rem;
 
-  &>*:nth-child(1) {
-    // background-color: pink;
-  }
 
   &>*:nth-child(2) {
     background-color: rgb(255, 230, 88);
