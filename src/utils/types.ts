@@ -1,36 +1,31 @@
+//https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys
+
+import { SendMethod } from "./send_methods";
 
 export type Maybe<T> = T | undefined | null;
 
-// send methods ------------------------------------
-export enum SendMethod {
-  sms = "sms",
-  email = "email",
-  whatsapp = "whatsapp",
-}
 
-export const sendMethodSteps: Record<SendMethod, number> = {
-  [SendMethod.sms]: 3,
-  [SendMethod.email]: 4,
-  [SendMethod.whatsapp]: 5,
+
+export type State = {
+  selectedPeople: string[];
+  step: number;
+  selectedTemplate: Maybe<TemplateKey>;
+  sendMethods: SendMethod[];
+  // messages: Messages;
+  messages: {
+    sms: string,
+    emailSubject: string,
+    emailMessage: string,
+    whatsapp: string,
+  },
+
 };
 
+export type StateForStorage = Omit<State, "step">
 
-export const sendMethodOptions = {
-  [SendMethod.sms]: {
-    label: "Sms",
-    description: "Envía un mensaje de texto",
 
-  },
-  [SendMethod.email]: {
-    label: "Correo electrónico",
-    description: "Envía un correo con los detalles",
-  },
-  [SendMethod.whatsapp]: {
-    label: "WhatsApp",
-    description: "Envía un mensaje por WhatsApp",
-  },
-}
-export type SendMethodKey = keyof typeof sendMethodOptions;
+
+
 
 
 
@@ -84,3 +79,18 @@ export const templateOptions = {
 };
 
 export type TemplateKey = keyof typeof templateOptions;
+
+
+
+
+
+
+
+// export type FieldConfig = {
+//   primitive?: "string" | "number";
+//   type: "text" | "email" | "number"; // Input type for `<input>`
+//   element: "input" | "textarea"; // Determines the HTML tag
+//   defaultValue: string;
+// };
+
+

@@ -1,14 +1,13 @@
 import { ModalChooseTemplate } from "@/components/main/ModalChooseTemplate";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import peopleData from "@/data/people.json";
-import { downloadJSON, getNextStep, getPrevStep } from "@/utils/functions";
+import { downloadJSON, getMessageKeys, getNextStep, getPrevStep } from "@/utils/functions";
 import { ActionType, initialState, reducer } from "@/utils/reducer";
-import { SendMethodKey, sendMethodOptions } from "@/utils/send_methods";
-import { StateForStorage, templateOptions } from "@/utils/types";
 import { Send } from "lucide-react";
 import React, { useEffect, useReducer, useRef } from "react";
 import { DialogFooter } from "./DialogFooter";
-import { ModalToWrite } from "./ModalWrite";
+import { sendMethodOptions, SendMethodKey, SendMethod } from "@/utils/send_methods";
+import { templateOptions, StateForStorage } from "@/utils/types";
 
 export const PeopleList: React.FC = () => {
 
@@ -102,17 +101,14 @@ export const PeopleList: React.FC = () => {
     onBack: goBack,
     onNext: handleNext,
     onSubmit: handleSubmit,
-    // 
-    isNextDisabled:
-      (state.step === 1 && !state.selectedTemplate) ||
-      (state.step === 2 && state.sendMethods.length === 0),
+    isNextDisabled: !state.selectedTemplate,
   };
 
 
   return (
-    <div className="box space-y-4">
+    <div className="space-y-4">
       <h1 className="text-3xl">Seleccionar Personas</h1>
-      <div className="pb-2">
+      <div className="pb-6">
         {peopleData.map((person, index) => (
           <label key={person.correo} className="people__label" id={`person-${index}`}>
             <div className="grid place-content-center">
@@ -130,10 +126,19 @@ export const PeopleList: React.FC = () => {
         ))}
       </div>
 
+
+
+
+      <p>holaaaaaaaa</p>
+
+
+
+
+
       <Dialog>
         <div className="ms-auto w-fit">
           <DialogTrigger asChild disabled={state.selectedPeople.length === 0}>
-            <button className="btn--main">
+            <button >
               <span>Enviar Mensajes</span>
               <Send />
             </button>
@@ -191,14 +196,81 @@ export const PeopleList: React.FC = () => {
           )}
 
           {state.selectedTemplate && (
+            <>
+              {state.step === 3 && state.sendMethods.includes(SendMethod.sms) && (
+                <div>
+                  <DialogHeader>
+                    <DialogTitle>Mensaje SMS</DialogTitle>
+                  </DialogHeader>
+                  <div className="dialog__content">
+                    <textarea
+                      value={state.messages.sms}
+                      onChange={(e) =>
+                        dispatch({ type: ActionType.SET_MESSAGE, payload: { key: "sms", value: e.target.value } })
+                      }
+                    />
+                  </div>
+                  <DialogFooter {...dialogFooterProps} />
+                </div>
+              )}
 
-            <ModalToWrite
-              step={state.step}
-              state={state}
-              dispatch={dispatch}
-              dialogFooterProps={dialogFooterProps}
-            />
+              {state.step === 4 && state.sendMethods.includes(SendMethod.email) && (
+                <div>
+                  <DialogHeader>
+                    <DialogTitle>Correo Electrónico</DialogTitle>
+                  </DialogHeader>
+                  <div className="dialog__content gap-2">
 
+                    <input
+                      type="text"
+                      value={state.messages.emailSubject}
+                      onChange={(e) =>
+                        dispatch({
+                          type: ActionType.SET_MESSAGE,
+                          payload: { key: "emailSubject", value: e.target.value },
+                        })
+                      }
+                    />
+                    <textarea
+                      value={state.messages.emailMessage}
+                      onChange={(e) =>
+                        dispatch({
+                          type: ActionType.SET_MESSAGE,
+                          payload: { key: "emailMessage", value: e.target.value },
+                        })
+                      }
+
+                    />
+                  </div>
+                  <DialogFooter {...dialogFooterProps} />
+                </div>
+              )}
+
+              {state.step === 5 && state.sendMethods.includes(SendMethod.whatsapp) && (
+                <div>
+                  <DialogHeader>
+                    <DialogTitle>Mensaje WhatsApp</DialogTitle>
+                  </DialogHeader>
+                  <div className="dialog__content">
+                    {getMessageKeys(SendMethod.whatsapp).map((key) => (
+                      <textarea
+                        key={key}
+                        value={state.messages[key]}
+                        onChange={(e) =>
+                          dispatch({
+                            type: ActionType.SET_MESSAGE,
+                            payload: { key, value: e.target.value },
+                          })
+                        }
+                      />
+                    ))}
+
+                  </div>
+                  <DialogFooter {...dialogFooterProps} />
+                </div>
+              )}
+
+            </>
           )}
         </DialogContent>
       </Dialog>

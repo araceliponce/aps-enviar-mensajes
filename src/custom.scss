@@ -6,7 +6,7 @@ body {
 main {
   max-width: 33rem;
   margin-inline: auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 
@@ -28,8 +28,19 @@ textarea {
 }
 
 // buttons
+button {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1rem;
+
+  & svg {
+    width: .8em;
+  }
+}
+
 [disabled] {
-  filter: invert(1);
+  // filter: invert(1);
+  filter: sepia(0.8);
   opacity: .9;
 }
 
@@ -40,16 +51,47 @@ textarea {
 
 }
 
+.btn--main {
+  text-transform: uppercase;
+  font-size: .8rem;
+  background-color: #2b2b2b;
+  color: white;
+}
 
+.btn__feedback {
+  padding-top: .2em;
+  font-size: .8rem;
+  opacity: .8;
+  text-align: center;
+}
+
+//email
+.email {
+  word-break: break-word;
+  // overflow-wrap: break-word;
+
+}
 
 // modals
 .bg-modal {
   background-color: white;
 }
 
+.box {
+  background-color: white;
+  outline: 1px solid #333;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
 @media (prefers-color-scheme: dark) {
   .bg-modal {
     background-color: rgb(29, 29, 29);
+  }
+
+  .box {
+    background-color: rgb(37, 37, 37);
+    outline: 1px solid #333;
   }
 }
 
@@ -61,6 +103,9 @@ textarea {
   & button {
     padding: .5rem;
     font-size: .8rem;
+    aspect-ratio: 1;
+    display: grid;
+    place-content: center;
   }
 }
 

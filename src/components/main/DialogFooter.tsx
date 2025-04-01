@@ -1,6 +1,6 @@
 import React from "react";
-import { SendMethod, sendMethodSteps } from "../../utils/types";
 import { DialogClose } from "@radix-ui/react-dialog";
+import { SendMethod, sendMethodSteps } from "@/utils/send_methods";
 
 interface DialogFooterProps {
   step: number;
@@ -8,7 +8,6 @@ interface DialogFooterProps {
   onBack: () => void;
   onNext: () => void;
   onSubmit: () => void;
-  // onCancel: () => void; // for 1st modal
   isNextDisabled?: boolean;
 
 }
