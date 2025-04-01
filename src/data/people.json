@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Luis",
+    "apellido": "Gómez",
+    "telefono": "+51 987654321",
+    "correo": "luis.gomez@example.com",
+    "fecha_postulacion": "2024-03-25",
+    "cv_file": "cv_luis_gomez.pdf"
+  },
+  {
+    "nombre": "María",
+    "apellido": "Fernández",
+    "telefono": "+51 956874123",
+    "correo": "maria.fernandez@example.com",
+    "fecha_postulacion": "2024-03-20",
+    "cv_file": "cv_maria_fernandez.pdf"
+  },
+  {
+    "nombre": "Carlos",
+    "apellido": "Rojas",
+    "telefono": "+51 924578963",
+    "correo": "carlos.rojas@example.com",
+    "fecha_postulacion": "2024-03-22",
+    "cv_file": "cv_carlos_rojas.pdf"
+  },
+  {
+    "nombre": "Ana",
+    "apellido": "Salazar",
+    "telefono": "+51 935412789",
+    "correo": "ana.salazar@example.com",
+    "fecha_postulacion": "2024-03-18",
+    "cv_file": "cv_ana_salazar.pdf"
+  },
+  {
+    "nombre": "Javier",
+    "apellido": "Torres",
+    "telefono": "+51 912478563",
+    "correo": "javier.torres@example.com",
+    "fecha_postulacion": "2024-03-27",
+    "cv_file": "cv_javier_torres.pdf"
+  },
+  {
+    "nombre": "Gabriela",
+    "apellido": "Castro",
+    "telefono": "+51 964523187",
+    "correo": "gabriela.castro@example.com",
+    "fecha_postulacion": "2024-03-21",
+    "cv_file": "cv_gabriela_castro.pdf"
+  },
+  {
+    "nombre": "Fernando",
+    "apellido": "Mendoza",
+    "telefono": "+51 974563210",
+    "correo": "fernando.mendoza@example.com",
+    "fecha_postulacion": "2024-03-26",
+    "cv_file": "cv_fernando_mendoza.pdf"
+  },
+  {
+    "nombre": "Paula",
+    "apellido": "López",
+    "telefono": "+51 982547631",
+    "correo": "paula.lopez@example.com",
+    "fecha_postulacion": "2024-03-23",
+    "cv_file": "cv_paula_lopez.pdf"
+  },
+  {
+    "nombre": "Ricardo",
+    "apellido": "Hernández",
+    "telefono": "+51 915674328",
+    "correo": "ricardo.hernandez@example.com",
+    "fecha_postulacion": "2024-03-19",
+    "cv_file": "cv_ricardo_hernandez.pdf"
+  },
+  {
+    "nombre": "Valeria",
+    "apellido": "Ruiz",
+    "telefono": "+51 987321456",
+    "correo": "valeria.ruiz@example.com",
+    "fecha_postulacion": "2024-03-24",
+    "cv_file": "cv_valeria_ruiz.pdf"
+  }
+]
