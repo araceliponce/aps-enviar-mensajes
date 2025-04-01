@@ -213,7 +213,7 @@ export const PeopleList: React.FC = () => {
               <DialogHeader>
                 <DialogTitle>Correo Electrónico</DialogTitle>
               </DialogHeader>
-              <div className="dialog__content">
+              <div className="dialog__content gap-2">
 
                 <input
                   type="text"

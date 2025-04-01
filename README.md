@@ -31,4 +31,5 @@ Start the server
 ```
 ## Screenshots
 
-![Screenshot](ss.png)
+![Screenshot 1](ss-1.png)
+![Screenshot 2](ss-2.png)
